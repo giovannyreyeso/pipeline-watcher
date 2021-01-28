@@ -48,6 +48,13 @@ Then you can use the new docker image
 ```bash
 docker run -p 3000:3000 --name pipeline-watcher pipeline-watcher:latest
 ```
+## To pass env vars to docker run command
+```bash
+docker run \
+-e GITLAB_HOST=https://yourgitlab.host.com  \
+-e GITLAB_PRIVATE_TOKEN=yourprivate-token \
+-p 3000:3000 --name pipeline-watcher pipeline-watcher:latest
+```
 
 # You can customize the message (Environment variables)<a name="env-vars"></a>
 - MESSAGE_TO_HOOK=The pipeline in the project %p %m in the branch %r created by %a
@@ -66,13 +73,6 @@ docker run -p 3000:3000 --name pipeline-watcher pipeline-watcher:latest
 
 This env variables can custumize in dev.env file also you can pass it to docker run command
 
-## To pass env vars to docker run command
-```bash
-docker run \
--e GITLAB_HOST=https://yourgitlab.host.com  \
--e GITLAB_PRIVATE_TOKEN=yourprivate-token \
--p 3000:3000 --name pipeline-watcher pipeline-watcher:latest
-```
 
 # Bugs
 If you find a bug please feel free to open a new issue with the details of the bug
