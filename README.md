@@ -3,7 +3,7 @@
 pipeline-watcher is a custom api for watch status of pipeline in gitlab continuos integration, now you can watch and send message to hook when a pipeline change status.
 
   - it's simple, just deploy the api
-  - modify before_script in .gitlab-ci.yaml and registre the pipeline to pipeline-watchera
+  - modify before_script in .gitlab-ci.yaml and registre the pipeline to pipeline-watcher
 
 
 **Table of Contents**   
@@ -42,7 +42,7 @@ docker build . --tag giovannyreyeso/pipeline-watcher:latest
 ```
 # Using the docker hub image
 ```bash
-docker pull docker pull giovannyreyeso/pipeline-watcher
+docker pull giovannyreyeso/pipeline-watcher
 ```
 Then you can use the new docker image
 ```bash
