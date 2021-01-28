@@ -25,12 +25,12 @@ The $CI env vars is taken from continuous integration of gitlab2
 "hook" refeerer to slack hook channel or / google chat for example:
 
 ```url
-https://hooks.slack.com/services/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
+https://hooks.slack.com/services/fake/fake/fake
 ```
 or
 
 ```url
-https://chat.googleapis.com/v1/spaces/ZZZFMnAK_Q/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3erfaKr4saHI&token=jHlD12f7XWtbzakaJhkfpN-TFafCrvAqG-ryLU0flak%3D
+https://chat.googleapis.com/v1/spaces/fake/messages?key=fake-fake&token=fake-fake-fake%3D
 ```
 
 For security reason must provide a env var from gitlab continuous integration in the project
