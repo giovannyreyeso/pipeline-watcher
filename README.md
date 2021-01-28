@@ -38,22 +38,22 @@ For security reason must provide a env var from gitlab continuous integration in
 # How run it? (Building custom Docker image) <a name="how-run-it"></a>
 First modify env.dev with your data and use docker build
 ```bash
-docker build . --tag pipeline-watcher:latest
+docker build . --tag giovannyreyeso/pipeline-watcher:latest
 ```
 # Using the docker hub image
 ```bash
-docker pull pipeline-watcher:latest
+docker pull docker pull giovannyreyeso/pipeline-watcher
 ```
 Then you can use the new docker image
 ```bash
-docker run -p 3000:3000 --name pipeline-watcher pipeline-watcher:latest
+docker run -p 3000:3000 --name pipeline-watcher giovannyreyeso/pipeline-watcher:latest
 ```
 ## To pass env vars to docker run command
 ```bash
 docker run \
 -e GITLAB_HOST=https://yourgitlab.host.com  \
 -e GITLAB_PRIVATE_TOKEN=yourprivate-token \
--p 3000:3000 --name pipeline-watcher pipeline-watcher:latest
+-p 3000:3000 --name pipeline-watcher giovannyreyeso/pipeline-watcher:latest
 ```
 
 # You can customize the message (Environment variables)<a name="env-vars"></a>
