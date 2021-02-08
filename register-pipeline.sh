@@ -9,4 +9,4 @@ do
         g) gitlabhost=${OPTARG};;
     esac
 done
-curl -X POST -H 'Content-type: application/json' --data '{"projectId": "'"$projectId"'", "pipelineId": "'"$pipelineId"'", "projectName":"'"$projectName"'", "hook":"'"$hook"'" }' $gitlabhost
+curl -X POST -H 'Content-type: application/json' --data '{"projectId": $projectId, "pipelineId": $pipelineId, "projectName":"'"$projectName"'", "hook": $hook }' $gitlabhost
