@@ -17,7 +17,12 @@ pipeline-watcher is a custom api for watch status of pipeline in gitlab continuo
 Please modify your .gitlab-ci.yaml in before_script for execute curl to send the data to pipeline-watcher
   ```yaml
 before_script:
-    - curl -X POST -H 'Content-type: application/json' --data '{"projectId": "'"$CI_PROJECT_ID"'", "pipelineId": "'"$CI_PIPELINE_ID"'", "projectName":"'"$CI_PROJECT_NAME"'", "hook":"slack-hook" }' http://your-pipeline-watcher-host:3000/register
+  - >-
+    curl -X POST -H 'Content-type: application/json' --data '{"projectId":
+    "'"$CI_PROJECT_ID"'", "pipelineId": "'"$CI_PIPELINE_ID"'",
+    "projectName":"'"$CI_PROJECT_NAME"'",
+    "hook":"https://your-slack-or-google-chat-hook"}'
+    http://your-pipeline-watcher-instance:3000/register
 ```
 The $CI env vars is taken from continuous integration of gitlab2
 
