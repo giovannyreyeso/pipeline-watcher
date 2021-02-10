@@ -17,7 +17,7 @@ async function checkPipeline(data) {
             pipelineId: data.pipelineId,
             status: pipelineStatus.status,
             ref: pipelineStatus.ref,
-            hook: data.hook
+            hooks: data.hooks
         });
         console.info(`The project ${data.projectName} was registered the actual pipeline status is ${pipelineStatus.status}`);
         return;
@@ -57,16 +57,18 @@ async function checkStatus() {
 }
 
 function sendMessageToHook(project, message) {
-    if (!project.hook)
+    if (!project.hooks)
         return;
-    const hook = project.hook;
-    axios.post(hook, {
-        text: message
-    }, {
-        headers: {
-            'Content-type': 'application/json'
-        }
-    });
+    const hooks = project.hooks;
+    for (let i = 0; i < hooks.length; i++) {
+        axios.post(hooks[i], {
+            text: message
+        }, {
+            headers: {
+                'Content-type': 'application/json'
+            }
+        });
+    }
 }
 
 function getStatusName(status) {

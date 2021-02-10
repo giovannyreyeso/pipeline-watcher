@@ -21,13 +21,13 @@ before_script:
     curl -X POST -H 'Content-type: application/json' --data '{"projectId":
     "'"$CI_PROJECT_ID"'", "pipelineId": "'"$CI_PIPELINE_ID"'",
     "projectName":"'"$CI_PROJECT_NAME"'",
-    "hook":"https://your-slack-or-google-chat-hook"}'
+    "hooks":["https://your-slack-or-google-chat-hook"]}'
     http://your-pipeline-watcher-instance:3000/register
 ```
 The $CI env vars is taken from continuous integration of gitlab2
 
 # Notes<a name="notes"></a>
-"hook" refeerer to slack hook channel or / google chat for example:
+"hooks" refeerer to slack hooks channel or / google chat for example (uri example):
 
 ```url
 https://hooks.slack.com/services/fake/fake/fake
