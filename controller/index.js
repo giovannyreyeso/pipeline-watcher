@@ -10,7 +10,7 @@ cron.schedule(process.env.CRON_JOB_TAB, () => {
 });
 async function checkPipeline(data) {
     if (existPipeline(data.pipelineId)) {
-        console.info(`Can't register the project ${data.projectName} the pipeline is already registered and the status is ${pipelineStatus.status}`);
+        console.info(`Can't register the project ${data.projectName} the pipeline is already registered`);
         return;
     }
     const pipelineStatus = await getJobStatus(data.projectId, data.pipelineId);
