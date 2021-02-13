@@ -4,7 +4,7 @@ const controller = require('../controller');
 routes.post('/register', async (req, res) => {
     if (!Array.isArray(req.body.hooks)) {
         return res.status(400).json({
-            message: "hook field is not an array"
+            message: "hooks field is not an array"
         });
     }
     controller.checkPipeline(req.body)

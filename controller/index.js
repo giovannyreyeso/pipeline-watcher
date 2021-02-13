@@ -9,6 +9,10 @@ cron.schedule(process.env.CRON_JOB_TAB, () => {
     }
 });
 async function checkPipeline(data) {
+    if (existPipeline(data.pipelineId)) {
+        console.info(`Can't register the project ${data.projectName} the pipeline is already registered and the status is ${pipelineStatus.status}`);
+        return;
+    }
     const pipelineStatus = await getJobStatus(data.projectId, data.pipelineId);
     if (pipelineStatus.status === 'running' || pipelineStatus.status === 'pending' || pipelineStatus.status === 'created') {
         projects.push({
@@ -23,6 +27,14 @@ async function checkPipeline(data) {
         return;
     }
     console.info(`Can't register the project ${data.projectName} the actual pipeline status is ${pipelineStatus.status}`);
+}
+async function existPipeline(pipelineId) {
+    for (let i = 0; i < projects.length; i++) {
+        if (pipelineId === projects[i].pipelineId) {
+            return true;
+        }
+    }
+    return false;
 }
 async function getJobStatus(projectId, pipelineId) {
     let jobs = [];
